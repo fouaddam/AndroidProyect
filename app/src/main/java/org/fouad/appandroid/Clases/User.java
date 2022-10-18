@@ -12,6 +12,22 @@ public class User {
         this.Apellido = apellido;
         this.Email=Email;
     }
+    public User(int id,String name, String apellido,String Email) {
+        this.id = id;
+        this.name = name;
+        this.Apellido = apellido;
+        this.Email=Email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", Apellido='" + Apellido + '\'' +
+                ", Email='" + Email + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;

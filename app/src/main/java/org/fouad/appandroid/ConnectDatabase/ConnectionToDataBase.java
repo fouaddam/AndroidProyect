@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class ConnectionToDataBase extends SQLiteOpenHelper {
 
 
-    String Tabl_users="CREATE TABLE USUARIO(id INTEGER,name TEXT,apellido TEXT)";
+    String Tabl_users="CREATE TABLE USUARIOS(id INTEGER,name TEXT,apellido TEXT)";
 
     public ConnectionToDataBase(@Nullable Context context,
                                 @Nullable String name,
