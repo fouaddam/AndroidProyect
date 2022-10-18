@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="13dp"
         android:onClick="ClicktoPage1"
-        android:text="Aceptar"
+        android:text="@string/aceptar"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
