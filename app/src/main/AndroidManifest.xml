@@ -14,6 +14,13 @@
         android:theme="@style/Theme.APPandroid"
         tools:targetApi="31">
         <activity
+            android:name=".listView"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Page1"
             android:exported="false" />
         <activity

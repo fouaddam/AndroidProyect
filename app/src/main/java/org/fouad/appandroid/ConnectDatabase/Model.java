@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.fouad.appandroid.Clases.Producto;
 import org.fouad.appandroid.Clases.User;
 
 import java.util.ArrayList;
@@ -20,17 +21,10 @@ public class Model {
 
     }
 
-    public SQLiteDatabase getConnectiontoRead(Context context) {
-        ConnectionToDataBase connectionToDataBase = new ConnectionToDataBase
-                (context, "databasenow", null, 1);
-        SQLiteDatabase db = connectionToDataBase.getReadableDatabase();
-        return db;
-
-    }
 
     public boolean insertUser(User user, Context context) {
 
-        String isertSQL = "INSERT INTO USUARIOS VALUES('0','" + user.getName() + "'," +
+        String isertSQL = "INSERT INTO USUARIO VALUES('0','" + user.getName() + "'," +
                 "'" + user.getApellido() + "')";
         ConnectionToDataBase connection = this.getConnection(context);
         SQLiteDatabase db = connection.getWritableDatabase();
@@ -39,10 +33,26 @@ public class Model {
         return true;
     }
 
+   /* public boolean insertProducto(Producto  producto, Context context) {
+        ConnectionToDataBase connectionToDataBase = new ConnectionToDataBase
+                (context, "databasenow", null, 1);
+        SQLiteDatabase db = connectionToDataBase.getWritableDatabase();
+
+
+        String isertSQL = "INSERT INTO Producto VALUES('" + producto.getId()+"','" + producto.getNombre() + "'," +
+                "'" + producto.getDescp() + "')";
+
+        db.execSQL(isertSQL);
+        System.out.println("Producto insertado ");
+        return true;
+    }
+
+    */
+
 
     public List<User> getUsers(Context context){
         List<User>usuariosList=new ArrayList<>();
-        String SQLSelect="SELECT * FROM USUARIOS";
+        String SQLSelect="SELECT * FROM USUARIO";
 
         ConnectionToDataBase connection = this.getConnection(context);
         SQLiteDatabase db = connection.getReadableDatabase();

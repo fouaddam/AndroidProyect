@@ -2,17 +2,17 @@ package org.fouad.appandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Page1 extends AppCompatActivity {
 
 
     TextView txtviewName;
+    Button buttonList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,7 @@ public class Page1 extends AppCompatActivity {
         txtviewName=findViewById(R.id.textViewName);
         String name=getIntent().getStringExtra("datos_name");
         txtviewName.setText(name);
+        //buttonList=findViewById(R.id.button3ID);??????????
     }
 
 
@@ -28,5 +29,11 @@ public class Page1 extends AppCompatActivity {
         Intent intentToPrincipal=new Intent(this,MainActivity.class);
 
         startActivity(intentToPrincipal);
+    }
+
+    public void ClickTolist(View view) {
+        Intent intent=new Intent(this, listView.class);
+        startActivity(intent);
+
     }
 }
