@@ -13,9 +13,7 @@ import org.fouad.appandroid.Clases.User;
 import org.fouad.appandroid.ConnectDatabase.Model;
 
 import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
-
 
     EditText txtname,txtapellido,txtPassword,txtEmail;
 
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         User user =new User(name,apellido,Email);
         System.out.println(user.toString());
         Model model=new Model();
-        model.insertUser(user,this);
+      //  model.insertUser(user,this);
 
            List<User> lista=model.getUsers(this);
 

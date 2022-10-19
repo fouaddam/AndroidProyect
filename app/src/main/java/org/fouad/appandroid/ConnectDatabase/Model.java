@@ -3,7 +3,6 @@ package org.fouad.appandroid.ConnectDatabase;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import org.fouad.appandroid.Clases.User;
 
@@ -13,11 +12,11 @@ import java.util.List;
 public class Model {
 
 
-    public SQLiteDatabase getConnection(Context context) {
-        ConnectionToDataBase connectionToDataBase = new ConnectionToDataBase
+    public ConnectionToDataBase getConnection(Context context) {
+        ConnectionToDataBase connection = new ConnectionToDataBase
                 (context, "databasenow", null, 1);
-        SQLiteDatabase db = connectionToDataBase.getWritableDatabase();
-        return db;
+
+        return connection;
 
     }
 
@@ -33,27 +32,36 @@ public class Model {
 
         String isertSQL = "INSERT INTO USUARIOS VALUES('0','" + user.getName() + "'," +
                 "'" + user.getApellido() + "')";
-        SQLiteDatabase db = this.getConnection(context);
+        ConnectionToDataBase connection = this.getConnection(context);
+        SQLiteDatabase db = connection.getWritableDatabase();
         db.execSQL(isertSQL);
         System.out.println("usuario insertado");
         return true;
     }
 
+
     public List<User> getUsers(Context context){
         List<User>usuariosList=new ArrayList<>();
+        String SQLSelect="SELECT * FROM USUARIOS";
 
-        String SQLSelect="SELECT * FROM USUARIO";
-        ConnectionToDataBase connection=new ConnectionToDataBase(context,"databaseusers",null,1);
+        ConnectionToDataBase connection = this.getConnection(context);
         SQLiteDatabase db = connection.getReadableDatabase();
         Cursor cursor=db.rawQuery(SQLSelect,null);
 
-
-        if(cursor.moveToFirst()){
-            do{
-                usuariosList.add(new User(cursor.getInt(1), cursor.getString(2),cursor.getString(3),cursor.getString(4)));
-            }while (cursor.moveToNext());
+        if(cursor!=null && cursor.getCount() > 0) {
+            if (cursor.moveToFirst()) {
+                do {
+                    usuariosList.add(new User(cursor.getString(0),
+                            cursor.getString(1),
+                            cursor.getString(2)));
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
 
         }
+
+
+
 
 
         return usuariosList;
