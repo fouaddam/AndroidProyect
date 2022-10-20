@@ -12,11 +12,9 @@ import java.util.List;
 
 public class Model {
 
-
     public ConnectionToDataBase getConnection(Context context) {
         ConnectionToDataBase connection = new ConnectionToDataBase
                 (context, "databasenow", null, 1);
-
         return connection;
 
     }
@@ -24,8 +22,9 @@ public class Model {
 
     public boolean insertUser(User user, Context context) {
 
-        String isertSQL = "INSERT INTO USUARIO VALUES('0','" + user.getName() + "'," +
+        String isertSQL = "INSERT INTO USUARIOS VALUES('0','" + user.getName() + "'," +
                 "'" + user.getApellido() + "')";
+
         ConnectionToDataBase connection = this.getConnection(context);
         SQLiteDatabase db = connection.getWritableDatabase();
         db.execSQL(isertSQL);
@@ -33,11 +32,10 @@ public class Model {
         return true;
     }
 
-   /* public boolean insertProducto(Producto  producto, Context context) {
-        ConnectionToDataBase connectionToDataBase = new ConnectionToDataBase
-                (context, "databasenow", null, 1);
-        SQLiteDatabase db = connectionToDataBase.getWritableDatabase();
+    public boolean insertProducto(Producto  producto, Context context) {
+        ConnectionToDataBase connection= getConnection(context);
 
+        SQLiteDatabase db = connection.getWritableDatabase();
 
         String isertSQL = "INSERT INTO Producto VALUES('" + producto.getId()+"','" + producto.getNombre() + "'," +
                 "'" + producto.getDescp() + "')";
@@ -47,12 +45,12 @@ public class Model {
         return true;
     }
 
-    */
+
 
 
     public List<User> getUsers(Context context){
         List<User>usuariosList=new ArrayList<>();
-        String SQLSelect="SELECT * FROM USUARIO";
+        String SQLSelect="SELECT * FROM USUARIOS";
 
         ConnectionToDataBase connection = this.getConnection(context);
         SQLiteDatabase db = connection.getReadableDatabase();
