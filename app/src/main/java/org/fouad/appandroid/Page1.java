@@ -25,9 +25,7 @@ public class Page1 extends AppCompatActivity {
 
 
     public void onClickBack(View view) {
-
         Intent intentToPrincipal=new Intent(this,MainActivity.class);
-
         startActivity(intentToPrincipal);
     }
 

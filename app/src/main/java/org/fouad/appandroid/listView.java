@@ -37,9 +37,10 @@ public class listView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         Model model=new Model();
         model.insertProducto(ProductosList().get(0),this);
-        super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list_view);
         listview = findViewById(R.id.listViewProduct);
         listanombre = new ArrayList<>();

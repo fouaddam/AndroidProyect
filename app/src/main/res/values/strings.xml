@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">APPandroid</string>
-    <string name="aceptar">Aceptar</string>
+    <string name="aceptar">aceptar</string>
+    <string name="vecesPulsado">times %1$ pulsed</string>
+    <plurals name="numPulsed">
+        <item quantity="one">Pulsed %d time </item>
+        <item quantity="other">Pulsed %d times </item>
+    </plurals>
+
 </resources>

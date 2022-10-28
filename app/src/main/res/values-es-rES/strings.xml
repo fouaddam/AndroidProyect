@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">APPandroid</string>
+    <string name="aceptar">aceptar</string>
+    <string name="vecesPulsado">se %1$ veces</string>
+    <plurals name="numPulsed">
+        <item quantity="one">pulsado %d vez </item>
+        <item quantity="other">pulsado %d veces </item>
+    </plurals>
 </resources>
